@@ -344,3 +344,42 @@ Relational Types
   	  reference in.
 
 
+Group tag
++++++++++
+
+Unlike form group elements, search view groups support unlimited number of widget(fields or filters)
+in a row (no automatic line wrapping), and only use the following attributes:
+
+    + ``expand``: turns on the expander icon on the group (1 for expanded by default, 0 for collapsed)
+    + ``string``: label for the group
+
+.. code-block:: xml
+
+    <group expand="1" string="Group By...">
+       <filter string="Users" icon="terp-project" domain="[]" context="{'group_by':'user_id'}"/>
+       <filter string="Project" icon="terp-project" domain="[]" context="{'group_by':'project_id'}"/>
+       <separator orientation="vertical"/>
+       <filter string="Deadline" icon="terp-project" domain="[]" context="{'group_by':'date_deadline'}"/>
+    </group>
+
+In the screenshot above the green area is an expandable group.
+
+Filter tag
++++++++++++
+Filters are displayed as a toggle button on search panel 
+Filter elements can add new values in the current domain or context of the search view.
+Filters can be added as a child element of field too, to indicate that they apply specifically
+to that field (in this case the button's icon will smaller)
+
+In the picture above the red area contains filters at the top of the form while
+the blue area highlights a field and it's child filter.
+
+.. code-block:: xml
+
+    <filter string="Current" domain="[('state','in',('open','draft'))]" help="Draft, Open and Pending Tasks" icon="terp-project"/>
+    <field name="project_id" select="1" widget="selection">
+        <filter domain="[('project_id.user_id','=',uid)]" help="My Projects" icon="terp-project"/>
+    </field>
+
+
+
