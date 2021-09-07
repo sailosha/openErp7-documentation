@@ -1,0 +1,40 @@
+<!-- 
+@author Roy
+A template usage for openERP, good for beginner.
+ -->
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+
+<!-- openERP data area. Like all the code needs in Java class.  -->
+<openerp>
+	<!-- all the data/method/input -->
+	<data>
+
+	<!-- MENUS
+		All the menu needs to in model ir.ui.menu
+		OR use menuitem (better and faster)
+	 -->
+		<record id="unique_menu_name" model="ir.ui.menu">
+			<field name="name">modelName._menu_name</field>
+			<field name="action" ref="action_xml_id"/>
+			<field name="sequence" eval="INT_DATA"/>
+			<field name="parent_id" ref="parent_menu_xml_id"/>
+		</record>
+
+		<!-- This same as above, but much better -->
+		<menuitem id="menu_xml_id"
+			name="My Menu"
+			action="action_xml_id"
+			icon="NAME_FROM_LIST"
+			groups="groupname"
+			parent="parent_menu_xml_id"
+			sequence="INT_DATA"	
+		/>
+
+
+
+	</data>
+</openerp>
+
+
