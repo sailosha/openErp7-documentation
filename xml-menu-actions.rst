@@ -70,6 +70,8 @@ menu entry, you can combine both declaration, as defined in the mail module :
             <field name="action" ref="action_mail_all_feeds"/>
         </record>
 
+An example to show the menu inherit in the XML
+
 .. code-block:: xml
         
 
@@ -78,3 +80,4 @@ menu entry, you can combine both declaration, as defined in the mail module :
         <menuitem name="New Table" id="menu_new_table"  parent="menu_new_table_header" action="action_new_table" sequence="10"/>
 
 .. image::  https://github.com/sailosha/openErp7-documentation/blob/main/Why%20not%20openERP7/img01.png?raw=true
+
