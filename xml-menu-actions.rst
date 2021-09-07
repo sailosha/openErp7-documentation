@@ -81,3 +81,60 @@ An example to show the menu inherit in the XML
 
 .. image::  https://github.com/sailosha/openErp7-documentation/blob/main/Why%20not%20openERP7/img01.png?raw=true
 
+
+Actions
+=======
+
+openERP must use "Actions" inorder to change on click, search and so on.
+
+Actions are explained in more detail in section "Administration Modules - Actions". Here's the template of an action XML record :
+::
+
+    <record model="ir.actions.act_window" id="action_id_1">
+        <field name="name">action.name</field>
+        <field name="view_id" ref="view_id_1"/>
+        <field name="domain">["list of 3-tuples (max 250 characters)"]</field>
+        <field name="context">{"context dictionary (max 250 characters)"}</field>
+        <field name="res_model">Open.object</field>
+        <field name="view_type">form|tree</field>
+        <field name="view_mode">form,tree|tree,form|form|tree</field>
+        <field name="usage">menu</field>
+        <field name="target">new</field>
+    </record>
+
+**Where**
+
+    * **id** is the identifier of the action in the table "ir.actions.act_window". It must be unique.
+    * **name** is the name of the action (mandatory).
+    * **view_id** is the name of the view to display when the action is activated. If this field is not defined, the view of a kind (list or form) associated to the object res_model with the highest priority field is used (if two views have the same priority, the first defined view of a kind is used).
+    * **domain** is a list of constraints used to refine the results of a selection, and hence to get less records displayed in the view. Constraints of the list are linked together with an AND clause : a record of the table will be displayed in the view only if all the constraints are satisfied.
+    * **context** is the context dictionary which will be visible in the view that will be opened when the action is activated. Context dictionaries are declared with the same syntax as Python dictionaries in the XML file. For more information about context dictionaries, see section " The context Dictionary".
+    * **res_model** is the name of the object on which the action operates.
+    * **view_type** is set to form when the action must open a new form view, and is set to tree when the action must open a new tree view.
+    * **view_mode** is only considered if view_type is form, and ignored otherwise. The four possibilities are :
+          - **form,tree** : the view is first displayed as a form, the list view can be displayed by clicking the "alternate view button" ;
+          - **tree,form** : the view is first displayed as a list, the form view can be displayed by clicking the "alternate view button" ;
+          - **form** : the view is displayed as a form and there is no way to switch to list view ;
+          - **tree** : the view is displayed as a list and there is no way to switch to form view.
+
+    * **target** the view will open in new window like wizard.
+    * **context** will be passed to the action itself and added to its global context
+
+      .. code-block:: xml
+
+          <record model="ir.actions.act_window" id="a">
+              <field name="name">account.account.tree1</field> 
+              <field name="res_model">account.account</field> 
+              <field name="view_type">tree</field> 
+              <field name="view_mode">form,tree</field> 
+              <field name="view_id" ref="v"/> 
+              <field name="domain">[('code','=','0')]</field> 
+              <field name="context">{'project_id': active_id}</field> 
+          </record>
+
+
+
+They indicate at the user that he has to open a new window in a new 'tab'.
+
+Administration > Custom > Low Level > Base > Action > Window Actions
+
