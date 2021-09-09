@@ -13,7 +13,20 @@ Python Rules:
 
 4. Return the object with object primary key (:id)
 
-5. 
+5. Return type is different from onchange function::
+	result["unique key"] = DATA
+
+	.. code-block:: python 
+		def _check_float(self, cr, uid, ids, field_name, args, context=None):
+			res = {}
+			for floatData in self.browse(cr, uid, ids, context=context):
+				# print floatData.id
+				# print floatData.float_col
+				if floatData.float_col >= 50:
+					res[floatData.id] =  "yes, the float field it is much bigger than 50"
+				else:
+					res[floatData.id] =  "no, smaller than 50"
+			return res
 
 
 _columns field rules:
@@ -21,13 +34,22 @@ _columns field rules:
 
 1. Declear after inline functions
 
-2. call inline function with fields.function(_MYFUNCTION, *optional parameters*)
+2. call inline function with fields.function(_MYFUNCTION, *optional parameters* )
+
+3. When calling the inline function(_functions), return type needs to declear
+   Otherwise, an error will raise
+
+.. code-blocl:: python 
+	'float2_col': fields.function(_double_float,type="float",store=False),
+
 
 
 ** Optional Parameters:** ::
 
     fnct, arg=None, fnct_inv=None, fnct_inv_arg=None, type="float",
         fnct_search=None, obj=None, method=False, store=False, multi=False
+
+.. code-block:: python
 
 where
 
