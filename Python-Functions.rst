@@ -16,7 +16,8 @@ Python Rules:
 5. Return type is different from onchange function::
 	result["unique key"] = DATA
 
-.. code-block:: python 
+.. code-block:: python
+
 	def _check_float(self, cr, uid, ids, field_name, args, context=None):
 		res = {}
 		for floatData in self.browse(cr, uid, ids, context=context):
@@ -49,7 +50,7 @@ _columns field rules:
     fnct, arg=None, fnct_inv=None, fnct_inv_arg=None, type="float",
         fnct_search=None, obj=None, method=False, store=False, multi=False
 
-.. code-block:: python
+
 
 where
 
