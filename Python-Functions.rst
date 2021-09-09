@@ -16,8 +16,8 @@ Python Rules:
 5. 
 
 
-XML rules:
-++++++++++
+_columns field rules:
++++++++++++++++++++++
 
 .. code-block:: python
 
@@ -33,8 +33,13 @@ XML rules:
 		return res	
 
 5. field_name OR field_names ?
+
 :field_name: 
-	Passing the 
+	Passing the single column name at one time.
+
+:field_names:
+	If **multi**=True, must pass field_names as parameters
+	Passing all the column names together.
 
 
 
