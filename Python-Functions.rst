@@ -30,6 +30,9 @@ Python Rules:
 	<field name="float_col" string="float" on_change="
                         onchange_float(float_col)" />
 
+6. Database query, if table name is "product_product", the code will use _ instead of . ::
+	product  = self.pool.get('product.product')
+
 
 _columns field rules:
 +++++++++++++++++++++
