@@ -34,15 +34,23 @@ Python Rules:
 
 	product  = self.pool.get('product.product')
 
-7. Database query request for onchange::
 
-	In the function: info = self.pool.get('product.product') to get the metadata
-	res = info.browse(cr, uid, product_id, context=context)
 
 7. Database query request for _function::
 
 	In the function: info = self.browse(cr, uid, ids, context=context) to get the specific data
 	
+
+Function Usage (python) 
+-----------------------
+1. return method for the object field::
+	
+	res['value'] = {'field-name': data}
+
+2. Database query request for onchange::
+
+	In the function: info = self.pool.get('product.product') to get the metadata
+	res = info.browse(cr, uid, product_id, context=context)
 
 _columns field rules:
 +++++++++++++++++++++
