@@ -21,13 +21,14 @@ Python Rules:
 	def _check_float(self, cr, uid, ids, field_name, args, context=None):
 		res = {}
 		for floatData in self.browse(cr, uid, ids, context=context):
-			# print floatData.id
-			# print floatData.float_col
 			if floatData.float_col >= 50:
 				res[floatData.id] =  "yes, the float field it is much bigger than 50"
 			else:
 				res[floatData.id] =  "no, smaller than 50"
 		return res
+	#xml calling object
+	<field name="float_col" string="float" on_change="
+                        onchange_float(float_col)" />
 
 
 _columns field rules:
