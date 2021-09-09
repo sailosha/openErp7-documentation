@@ -6,7 +6,7 @@ Python Rules:
 
 1. It must declear before the _columns
 
-2. Method start with _ 
+2. Method start with _Function_name()
 
 3. Passing the openERP parameters
 	self, cr, uid, ids, field_name, args, context
