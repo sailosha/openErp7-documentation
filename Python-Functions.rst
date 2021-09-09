@@ -8,8 +8,8 @@ Python Rules:
 
 2. Method start with _ (underscore)
 
-3. Passing the openERP parameters
-	self, cr, uid, ids, field_name, args, context
+3. Passing the openERP parameters:
+self, cr, uid, ids, field_name, args, context
 
 4. Return the object with object primary key (:id)
 
@@ -38,7 +38,7 @@ _columns field rules:
 	Passing the single column name at one time.
 
 :field_names:
-	If **multi**=True, must pass field_names as parameters
+	If **multi** =True, must pass field_names as parameters
 	Passing all the column names together.
 
 
