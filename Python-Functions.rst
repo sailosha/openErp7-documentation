@@ -16,17 +16,17 @@ Python Rules:
 5. Return type is different from onchange function::
 	result["unique key"] = DATA
 
-	.. code-block:: python 
-		def _check_float(self, cr, uid, ids, field_name, args, context=None):
-			res = {}
-			for floatData in self.browse(cr, uid, ids, context=context):
-				# print floatData.id
-				# print floatData.float_col
-				if floatData.float_col >= 50:
-					res[floatData.id] =  "yes, the float field it is much bigger than 50"
-				else:
-					res[floatData.id] =  "no, smaller than 50"
-			return res
+.. code-block:: python 
+	def _check_float(self, cr, uid, ids, field_name, args, context=None):
+		res = {}
+		for floatData in self.browse(cr, uid, ids, context=context):
+			# print floatData.id
+			# print floatData.float_col
+			if floatData.float_col >= 50:
+				res[floatData.id] =  "yes, the float field it is much bigger than 50"
+			else:
+				res[floatData.id] =  "no, smaller than 50"
+		return res
 
 
 _columns field rules:
