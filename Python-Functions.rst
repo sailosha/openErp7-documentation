@@ -33,6 +33,13 @@ Python Rules:
 6. Database query, if table name is "product_product", the code will use _ instead of . ::
 	product  = self.pool.get('product.product')
 
+7. Database query request for onchange::
+	In the function: info = self.pool.get('product.product') to get the metadata
+	res = info.browse(cr, uid, product_id, context=context)
+
+7. Database query request for _function::
+	In the function: info = self.browse(cr, uid, ids, context=context) to get the specific data 
+	
 
 _columns field rules:
 +++++++++++++++++++++
