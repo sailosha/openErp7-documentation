@@ -19,6 +19,37 @@ Python Rules:
 _columns field rules:
 +++++++++++++++++++++
 
+1. Declear after inline functions
+
+2. call inline function with fields.function(_MYFUNCTION, *optional parameters*)
+
+
+** Optional Parameters:** ::
+
+    fnct, arg=None, fnct_inv=None, fnct_inv_arg=None, type="float",
+        fnct_search=None, obj=None, method=False, store=False, multi=False
+
+where
+
+    :fnct: is the function or method that will compute the field 
+      value. It must have been declared before declaring the functional field.
+    :fnct_inv: is the function or method that will allow writing
+      values in that field.
+    :type: is the field type name returned by the function. It can
+      be any field type name except function.
+    :fnct_search: allows you to define the searching behaviour on
+      that field.
+    :method: whether the field is computed by a method (of an
+      object) or a global function
+    :store: If you want to store field in database or not. Default
+      is False.
+    :multi: is a group name. All fields with the same `multi`
+      parameter will be calculated in a single function call. 
+
+
+
+
+
 .. code-block:: python
 
 	def _check_float(self, cr, uid, ids, field_name, args, context=None):
