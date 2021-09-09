@@ -8,7 +8,7 @@ Python Rules:
 
 2. Method start with _
 
-3. Passing the openERP parameters::
+3. Passing the openERP parameters:
 	self, cr, uid, ids, field_name, args, context
 
 4. Return the object with object primary key (:id)
